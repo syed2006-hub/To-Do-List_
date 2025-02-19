@@ -1,3 +1,6 @@
+
+
+
 var new_ele=document.getElementsByClassName("new-element")
 
 
@@ -28,7 +31,7 @@ function hidelerrbox(){
 
 }
 function formatdate(){
-    dateinput=document.getElementById("inpdate")
+    var dateinput=document.getElementById("inpdate")
     let inputDate = new Date(dateinput.value); 
     var formattedDate = inputDate.toLocaleDateString("en-GB"); 
     var datetxt=document.createElement("p")
@@ -40,15 +43,37 @@ function formatdate(){
 }
 function update()
 {
-    let todaydate=new Date().toISOString().split('t')[0];
-    let dateinput=document.getElementById("inpdate").value;
+    let yesterdate=new Date();
+
+    var dateinput=document.getElementById("inpdate")
+
+    let inputDate = new Date(dateinput.value); 
+    let monthinp=inputDate.getMonth()+1;
+    let dayinp=inputDate.getDate();
+    let yearinp=inputDate.getFullYear();
+
+    let monthyester=yesterdate.getMonth()+1;
+    let dayyester=yesterdate.getDate();
+    let yearyester=yesterdate.getFullYear();
+
+
+    console.log(monthinp)
+    console.log(dayinp)
+    console.log(yearinp)
+
+    console.log(monthyester)
+    console.log(dayyester)
+    console.log(yearyester)
+
+
+    
     var taskValue = inptask.value.trim();
     var dateValue=inpdate.value;
     if (taskValue === "" || dateValue === "") {
         document.getElementById("inputerrorbox").style.display="block"
 
     }
-    else  if(dateinput<todaydate){
+    else  if(yearinp<yearyester || (yearinp===yearyester &&monthinp<monthyester) || (yearinp===yearyester &&monthinp===monthyester && dayinp<dayyester) ){
         document.getElementById("linputerrorbox").style.display="block"
     }
     else
