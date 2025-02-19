@@ -57,15 +57,6 @@ function update()
     let yearyester=yesterdate.getFullYear();
 
 
-    console.log(monthinp)
-    console.log(dayinp)
-    console.log(yearinp)
-
-    console.log(monthyester)
-    console.log(dayyester)
-    console.log(yearyester)
-
-
     
     var taskValue = inptask.value.trim();
     var dateValue=inpdate.value;
